@@ -59,7 +59,12 @@ class PenguinTrainer:
         # Evaluate on test set
         test_score = self.best_model.score(X_test_transformed, y_test)
 
+        # Predictions for evaluation
+        y_pred = self.best_model.predict(X_test_transformed)
+
         return {
             "best_params": grid.best_params_,
             "test_accuracy": test_score,
+            "y_test": y_test,
+            "y_pred": y_pred
         }
