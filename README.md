@@ -1,7 +1,7 @@
 # Penguins
 Library + API for predicting penguin species (Computing for Data Science final project)
 
-## how to extend the library
+## How to extend the library
 
 ---
 
@@ -34,7 +34,7 @@ def create_new_feature(self, df):
 ```
 ---
 
-### Add a new model
+## Add a new model
 
 Models are defined in:
 `penguin_lib/models/trainer.py`
@@ -115,6 +115,7 @@ From the project root:
 uv run python test_api.py
 ```
 The API returns a single predicted species label
+
 
 ## How to run the project
 
