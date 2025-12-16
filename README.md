@@ -150,7 +150,7 @@ penguin_lib/                 core library
   utils/                     shared utilities
 tests/                       unit tests
 data/                        dataset
-test_pipeline.py             end-to-end pipeline test
-test_training.py             model training script
-test_evaluation.py           model evaluation script
-test_api.py                  API usage example
+pyproject.toml               project configuration
+uv.lock                      locked dependencies
+README.md                    project documentation
+
