@@ -40,7 +40,7 @@ class PenguinTrainer:
         # Hyperparameter tuning
         param_grid = {
             "n_estimators": [50, 100, 200],
-            "max_depth": [0.1, 0.05, 0.005],
+            "max_depth": [1, 2, 3],
             "min_samples_split": [2, 5],
         }
 
