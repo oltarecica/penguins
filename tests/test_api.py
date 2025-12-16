@@ -1,13 +1,20 @@
+import sys, os
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+
 from penguin_lib.api.predict import predict_species
 
-sample = {
-    "bill_length_mm": 40.0,
-    "bill_depth_mm": 18.0,
-    "flipper_length_mm": 195.0,
-    "body_mass_g": 4000.0,
-    "sex": "male",
-    "island": "Biscoe",
-    "year": 2008
-}
+def test_api_returns_string():
+    input_data = {
+        "bill_length_mm": 39.1,
+        "bill_depth_mm": 18.7,
+        "flipper_length_mm": 181,
+        "body_mass_g": 3750,
+        "sex": "Male",
+        "island": "Torgersen",
+        "year": 2007
+    }
 
-print("Predicted species:", predict_species(sample))
+    pred = predict_species(input_data)
+
+    assert isinstance(pred, str)
+

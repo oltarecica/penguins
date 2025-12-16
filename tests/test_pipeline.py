@@ -1,19 +1,19 @@
+import sys, os
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+
 import pandas as pd
 from penguin_lib.preprocessing.preprocessor import PenguinPreprocessor
 from penguin_lib.features.feature_creator import FeatureCreator
 
-# Load dataset
-df = pd.read_csv("data/penguins.csv")
+def test_pipeline_runs_end_to_end():
+    df = pd.read_csv("data/penguins.csv")
 
-# Create features
-fc = FeatureCreator()
-df_features = fc.create_all(df)
+    fc = FeatureCreator()
+    df_features = fc.create_all(df)
 
-print("Feature columns added:")
-print([col for col in df_features.columns if col not in df.columns])
+    prep = PenguinPreprocessor()
+    X = prep.fit_transform(df_features)
 
-# Preprocess
-prep = PenguinPreprocessor()
-X = prep.fit_transform(df_features)
+    assert X.shape[0] == df.shape[0]
+    assert X.shape[1] > 0
 
-print("Preprocessing output shape:", X.shape)
