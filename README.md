@@ -140,17 +140,44 @@ uv run pytest
 ```
 
 ### Project layout
-penguin_lib/                 core library
-  api/                       prediction API
-    predict.py               single-datapoint prediction
-  preprocessing/             preprocessing logic
-  features/                  feature engineering
-  models/                    model training and selection
-  metrics/                   evaluation metrics
-  utils/                     shared utilities
-tests/                       unit tests
-data/                        dataset
-pyproject.toml               project configuration
-uv.lock                      locked dependencies
-README.md                    project documentation
+Raw data (penguins.csv)
+│
+├── Feature engineering
+│   ├── bill_ratio
+│   ├── mass_flipper_ratio
+│   ├── year_centered
+│   ├── bill_sum
+│   └── interaction term
+│
+├── Preprocessing
+│   ├── Numeric features
+│   │   ├── Median imputation
+│   │   └── Standard scaling
+│   │
+│   └── Categorical features
+│       ├── Most-frequent imputation
+│       └── One-hot encoding
+│
+├── Train–test split
+│   ├── 80% training data
+│   └── 20% test data (stratified)
+│
+├── Model training
+│   ├── Random Forest classifier
+│   ├── Cross-validation
+│   └── Hyperparameter tuning (GridSearchCV)
+│
+├── Model evaluation
+│   ├── Accuracy
+│   ├── Precision (weighted)
+│   ├── Recall (weighted)
+│   ├── F1 score (weighted)
+│   └── Confusion matrix
+│
+└── Prediction API
+    ├── Single datapoint input
+    ├── Same feature engineering
+    ├── Same preprocessing
+    └── Predicted species label
+
 
